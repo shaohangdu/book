@@ -4,6 +4,7 @@ let select = showView.querySelector('select');
 let content = document.getElementById('content');
 let next = document.getElementById('next');
 let copy = document.getElementById('copy');
+let player = document.getElementById('player');
 input.addEventListener('change', function (e) {
     e.preventDefault();
     let url = "show.php";
@@ -41,6 +42,21 @@ next.addEventListener('click', function (e) {
     e.preventDefault();
     console.log(this.dataset.value);
     show(this.dataset.value);
+});
+
+
+player.addEventListener('click', function (e) {
+    e.preventDefault();
+    if(window.speechSynthesis.speaking == true) {
+        window.speechSynthesis.cancel();
+    }else {
+        let text = content.innerText;
+        var msg = new SpeechSynthesisUtterance();
+        var voices = window.speechSynthesis.getVoices();
+        msg.voice = voices[1];
+        msg.text = text;
+        window.speechSynthesis.speak(msg);
+    }
 });
 
 function show(value) {
@@ -121,3 +137,11 @@ copy.addEventListener('click', function (e) {
     e.preventDefault();
     copyfun(content.innerText);
 })
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'ArrowLeft') {
+        player.click();
+    } else if (event.key === 'ArrowRight') {
+        next.click();
+    }
+});

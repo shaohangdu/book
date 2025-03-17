@@ -48,7 +48,10 @@
             </select>
 
             <div id="content"></div>
-            <div class="btn btn-gray" id="next">下一章</div>
+            <div class="row">
+                <div class="btn btn-gray" id="next">下一章</div>
+                <div class="btn btn-red" id="player">播放</div>
+            </div>
         </div> 
     </div>
     <!--==== script ====-->

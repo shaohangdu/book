@@ -187,3 +187,18 @@ table {
     vertical-align: baseline;
     text-align: center;
 }
+
+#showView .row {
+    padding: 0;
+}
+
+#showView .row div{
+    width: 100px;
+    padding: 5px 10px;
+    margin-left: 10px;
+}
+
+#showView .row div.btn-red{
+    
+    background-color: red;
+}
